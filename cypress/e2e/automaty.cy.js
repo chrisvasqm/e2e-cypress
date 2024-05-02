@@ -1,28 +1,32 @@
+const LoginForm = require('./pageobjects/LoginForm');
+const WelcomePage = require('./pageobjects/WelcomePage');
+
 describe('Login', () => {
+    const form = new LoginForm();
+
     beforeEach(() => {
-        cy.visit("https://automaty.vercel.app/");
+        form.open();
     })
 
     it('should login with valid credentials', () => {
-        cy.get('#username').type('admin');
-        cy.get('#password').type('admin');
-        cy.get('#sign-in').click();
+        form.signIn('admin', 'admin');
 
-        cy.get('#title-welcome-back').should('exist');
+        const welcome = new WelcomePage();
+
+        welcome.title().should('exist');
     })
 
-    it('should see errors with no credentials', () => {
-        cy.get('#sign-in').click();
+    it('should see errors invalid invalid credentials', () => {
+        form.signIn('a', 'a');
 
-        cy.get('#username-helper-text').should('exist');
-        cy.get('#password-helper-text').should('exist');
+        form.usernameError().should('exist');
+        form.passwordError().should('exist');
     })
 
     it('should see alert with wrong credentials', () => {
-        cy.get('#username').type('wrong_username');
-        cy.get('#password').type('wrong_password');
-        cy.get('#sign-in').click();
+        form.signIn('wrong_username', 'wrong_password');
 
-        cy.contains('Invalid').should('exist');
+        form.invalidAlert().should('exist');
     })
+
 })
