@@ -1,5 +1,5 @@
 describe('Login', () => {
-    before(() => {
+    beforeEach(() => {
         cy.visit("https://automaty.vercel.app/");
     })
 
@@ -9,5 +9,12 @@ describe('Login', () => {
         cy.get('#sign-in').click();
 
         cy.get('#title-welcome-back').should('exist');
+    })
+
+    it('should see errors with no credentials', () => {
+        cy.get('#sign-in').click();
+
+        cy.get('#username-helper-text').should('exist');
+        cy.get('#password-helper-text').should('exist');
     })
 })
