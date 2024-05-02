@@ -1,9 +1,5 @@
 class LoginForm {
 
-    open() {
-        cy.visit("https://automaty.vercel.app/");
-    }
-
     signIn(username, password) {
         cy.get('#username').type(username);
         cy.get('#password').type(password);

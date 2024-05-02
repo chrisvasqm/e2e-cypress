@@ -1,32 +1,38 @@
 const LoginForm = require('./pageobjects/LoginForm');
 const WelcomePage = require('./pageobjects/WelcomePage');
+const Automaty = require('./pageobjects/Automaty');
 
-describe('Login', () => {
-    const form = new LoginForm();
+describe('Automaty', () => {
 
-    beforeEach(() => {
-        form.open();
-    })
+    describe('Login', () => {
+        const form = new LoginForm();
 
-    it('should login with valid credentials', () => {
-        form.signIn('admin', 'admin');
+        beforeEach(() => {
+            const automaty = new Automaty();
+            automaty.open();
+        })
 
-        const welcome = new WelcomePage();
+        it('should login with valid credentials', () => {
+            form.signIn('admin', 'admin');
 
-        welcome.title().should('exist');
-    })
+            const welcome = new WelcomePage();
 
-    it('should see errors invalid invalid credentials', () => {
-        form.signIn('a', 'a');
+            welcome.title().should('exist');
+        })
 
-        form.usernameError().should('exist');
-        form.passwordError().should('exist');
-    })
+        it('should see errors invalid invalid credentials', () => {
+            form.signIn('a', 'a');
 
-    it('should see alert with wrong credentials', () => {
-        form.signIn('wrong_username', 'wrong_password');
+            form.usernameError().should('exist');
+            form.passwordError().should('exist');
+        })
 
-        form.invalidAlert().should('exist');
+        it('should see alert with wrong credentials', () => {
+            form.signIn('wrong_username', 'wrong_password');
+
+            form.invalidAlert().should('exist');
+        })
+
     })
 
 })
