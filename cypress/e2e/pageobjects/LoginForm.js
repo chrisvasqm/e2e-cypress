@@ -19,7 +19,7 @@ class LoginForm {
     }
 
     invalidAlert() {
-        return cy.contains('Invalid');
+        return cy.contains('Invalid', { timeout: 500 });
     }
 
 }
