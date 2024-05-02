@@ -4,9 +4,9 @@ Sample project to showcase how to write End-To-End tests using Cypress with the 
 
 ## Getting started
 
-1. Install `NodeJS` on your machine.
-2. `git clone` this repository.
-3. Install all the dependencies
+1. Install [NodeJS](https://nodejs.org/en) on your machine
+2. Clone this repository
+3. Install the project's dependencies
 
 ```bash
 npm install
