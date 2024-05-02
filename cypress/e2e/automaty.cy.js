@@ -17,4 +17,12 @@ describe('Login', () => {
         cy.get('#username-helper-text').should('exist');
         cy.get('#password-helper-text').should('exist');
     })
+
+    it('should see alert with wrong credentials', () => {
+        cy.get('#username').type('wrong_username');
+        cy.get('#password').type('wrong_password');
+        cy.get('#sign-in').click();
+
+        cy.contains('Invalid').should('exist');
+    })
 })
