@@ -1,10 +1,10 @@
 class StudentForm {
 
-    fill(student) {
+    fill(student: Student) {
         cy.get('#firstName').type(student.firstName);
         cy.get('#lastName').type(student.lastName);
         cy.get('#email').type(student.email);
-        cy.get('#gender-male').click();
+        cy.get(`#gender-${student.gender.toLowerCase()}`).click();
         cy.get('#phone').type(student.phone);
         cy.get('input[id=":r9:"]').click();
         cy.contains(student.province).click();

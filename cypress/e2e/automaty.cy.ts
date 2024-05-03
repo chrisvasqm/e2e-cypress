@@ -52,6 +52,7 @@ describe('Automaty', () => {
                 firstName: 'John',
                 lastName: 'Smith',
                 email: 'jsmith@gmail.com',
+                gender: 'Male',
                 phone: '8095555555',
                 province: 'Distrito Nacional'
             });
