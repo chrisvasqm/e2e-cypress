@@ -1,6 +1,7 @@
 const LoginForm = require('./pageobjects/LoginForm');
 const WelcomePage = require('./pageobjects/WelcomePage');
 const Automaty = require('./pageobjects/Automaty');
+const SidePanel = require('./pageobjects/SidePanel');
 
 describe('Automaty', () => {
     const automaty = new Automaty();
@@ -39,7 +40,9 @@ describe('Automaty', () => {
 
         beforeEach(() => {
             automaty.open();
-            cy.contains('Students').click();
+
+            const sidePanel = new SidePanel();
+            sidePanel.selectStudents();
         })
 
         it('should be able to apply as a Student', () => {
