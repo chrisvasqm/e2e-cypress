@@ -20,7 +20,7 @@ describe('Automaty', () => {
             welcome.title().should('exist');
         })
 
-        it('should see errors invalid invalid credentials', () => {
+        it('should see errors with invalid credentials', () => {
             form.signIn('a', 'a');
 
             form.usernameError().should('exist');
@@ -41,7 +41,7 @@ describe('Automaty', () => {
             automaty.open();
         })
 
-        it.only('should be able to apply as a Student', () => {
+        it('should be able to apply as a Student', () => {
             cy.contains('Students').click();
 
             cy.get('#firstName').type('John');
