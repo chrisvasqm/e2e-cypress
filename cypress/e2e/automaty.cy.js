@@ -3,6 +3,7 @@ const WelcomePage = require('./pageobjects/WelcomePage');
 const Automaty = require('./pageobjects/Automaty');
 const SidePanel = require('./pageobjects/SidePanel');
 const StudentForm = require('./pageobjects/StudentForm');
+const StudentModal = require('./pageobjects/StudentModal');
 
 describe('Automaty', () => {
     const automaty = new Automaty();
@@ -58,7 +59,8 @@ describe('Automaty', () => {
 
             form.register();
 
-            cy.get('#alert-dialog-title').should('exist');
+            const modal = new StudentModal();
+            modal.title().should('exist');
         })
 
         it('should see errors with invalid values', () => {
