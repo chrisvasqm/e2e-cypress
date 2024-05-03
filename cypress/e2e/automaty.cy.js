@@ -55,7 +55,7 @@ describe('Automaty', () => {
             cy.get('#alert-dialog-title').should('exist');
         })
 
-        it.only('should see errors with invalid values', () => {
+        it('should see errors with invalid values', () => {
             cy.get('#register').click();
 
             cy.get('#firstName-helper-text').should('exist');
