@@ -6,4 +6,4 @@ class Automaty {
 
 }
 
-module.exports = Automaty;
+export default Automaty;

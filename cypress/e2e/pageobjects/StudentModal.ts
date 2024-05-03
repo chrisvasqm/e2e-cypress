@@ -6,4 +6,4 @@ class StudentModal {
 
 }
 
-module.exports = StudentModal;
+export default StudentModal;
