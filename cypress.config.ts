@@ -1,6 +1,6 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from 'cypress';
 
-module.exports = defineConfig({
+const config = defineConfig({
   viewportHeight: 1080,
   viewportWidth: 1920,
   e2e: {
@@ -9,3 +9,5 @@ module.exports = defineConfig({
     },
   },
 });
+
+export default config;
