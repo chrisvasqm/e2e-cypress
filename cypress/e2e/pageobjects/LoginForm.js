@@ -6,12 +6,11 @@ class LoginForm {
         cy.get('#sign-in').click();
     }
 
-    usernameError() {
-        return cy.get('#username-helper-text');
-    }
-
-    passwordError() {
-        return cy.get('#password-helper-text');
+    errors() {
+        return [
+            cy.get('#username-helper-text'),
+            cy.get('#password-helper-text')
+        ];
     }
 
     invalidAlert() {

@@ -26,8 +26,7 @@ describe('Automaty', () => {
         it('should see errors with invalid credentials', () => {
             form.signIn('a', 'a');
 
-            form.usernameError().should('exist');
-            form.passwordError().should('exist');
+            form.errors().forEach(error => error.should('exist'));
         })
 
         it('should see alert with wrong credentials', () => {
