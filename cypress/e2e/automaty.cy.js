@@ -2,6 +2,7 @@ const LoginForm = require('./pageobjects/LoginForm');
 const WelcomePage = require('./pageobjects/WelcomePage');
 const Automaty = require('./pageobjects/Automaty');
 const SidePanel = require('./pageobjects/SidePanel');
+const StudentForm = require('./pageobjects/StudentForm');
 
 describe('Automaty', () => {
     const automaty = new Automaty();
@@ -37,6 +38,7 @@ describe('Automaty', () => {
     })
 
     describe('Students', () => {
+        const form = new StudentForm();
 
         beforeEach(() => {
             automaty.open();
@@ -46,20 +48,21 @@ describe('Automaty', () => {
         })
 
         it('should be able to apply as a Student', () => {
-            cy.get('#firstName').type('John');
-            cy.get('#lastName').type('Smith');
-            cy.get('#email').type('jsmith@gmail.com');
-            cy.get('#gender-male').click();
-            cy.get('#phone').type('8095555555');
-            cy.get('input[id=":r9:"]').click();
-            cy.contains('Distrito Nacional').click();
-            cy.get('#register').click();
+            form.fill({
+                firstName: 'John',
+                lastName: 'Smith',
+                email: 'jsmith@gmail.com',
+                phone: '8095555555',
+                province: 'Distrito Nacional'
+            });
+
+            form.register();
 
             cy.get('#alert-dialog-title').should('exist');
         })
 
         it('should see errors with invalid values', () => {
-            cy.get('#register').click();
+            form.register();
 
             cy.get('#firstName-helper-text').should('exist');
             cy.get('#lastName-helper-text').should('exist');
