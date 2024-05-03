@@ -39,11 +39,10 @@ describe('Automaty', () => {
 
         beforeEach(() => {
             automaty.open();
+            cy.contains('Students').click();
         })
 
         it('should be able to apply as a Student', () => {
-            cy.contains('Students').click();
-
             cy.get('#firstName').type('John');
             cy.get('#lastName').type('Smith');
             cy.get('#email').type('jsmith@gmail.com');
@@ -54,6 +53,16 @@ describe('Automaty', () => {
             cy.get('#register').click();
 
             cy.get('#alert-dialog-title').should('exist');
+        })
+
+        it.only('should see errors with invalid values', () => {
+            cy.get('#register').click();
+
+            cy.get('#firstName-helper-text').should('exist');
+            cy.get('#lastName-helper-text').should('exist');
+            cy.get('#email-helper-text').should('exist');
+            cy.get('#phone-helper-text').should('exist');
+            cy.get('#provinces-helper-text').should('exist');
         })
 
     })
