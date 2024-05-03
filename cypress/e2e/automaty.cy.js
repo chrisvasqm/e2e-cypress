@@ -3,12 +3,12 @@ const WelcomePage = require('./pageobjects/WelcomePage');
 const Automaty = require('./pageobjects/Automaty');
 
 describe('Automaty', () => {
+    const automaty = new Automaty();
 
     describe('Login', () => {
         const form = new LoginForm();
 
         beforeEach(() => {
-            const automaty = new Automaty();
             automaty.open();
         })
 
@@ -31,6 +31,29 @@ describe('Automaty', () => {
             form.signIn('wrong_username', 'wrong_password');
 
             form.invalidAlert().should('exist');
+        })
+
+    })
+
+    describe('Students', () => {
+
+        beforeEach(() => {
+            automaty.open();
+        })
+
+        it.only('should be able to apply as a Student', () => {
+            cy.contains('Students').click();
+
+            cy.get('#firstName').type('John');
+            cy.get('#lastName').type('Smith');
+            cy.get('#email').type('jsmith@gmail.com');
+            cy.get('#gender-male').click();
+            cy.get('#phone').type('8095555555');
+            cy.get('input[id=":r9:"]').click();
+            cy.contains('Distrito Nacional').click();
+            cy.get('#register').click();
+
+            cy.get('#alert-dialog-title').should('exist');
         })
 
     })
