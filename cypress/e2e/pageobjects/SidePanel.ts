@@ -6,4 +6,4 @@ class SidePanel {
 
 }
 
-module.exports = SidePanel;
+export default SidePanel;

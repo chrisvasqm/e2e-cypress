@@ -1,9 +1,9 @@
-const LoginForm = require('./pageobjects/LoginForm');
-const WelcomePage = require('./pageobjects/WelcomePage');
-const Automaty = require('./pageobjects/Automaty');
-const SidePanel = require('./pageobjects/SidePanel');
-const StudentForm = require('./pageobjects/StudentForm');
-const StudentModal = require('./pageobjects/StudentModal');
+import LoginForm from './pageobjects/LoginForm';
+import WelcomePage from './pageobjects/WelcomePage';
+import Automaty from './pageobjects/Automaty';
+import SidePanel from './pageobjects/SidePanel';
+import StudentForm from './pageobjects/StudentForm';
+import StudentModal from './pageobjects/StudentModal';
 
 describe('Automaty', () => {
     const automaty = new Automaty();

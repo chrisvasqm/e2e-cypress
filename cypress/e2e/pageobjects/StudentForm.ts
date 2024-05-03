@@ -26,4 +26,4 @@ class StudentForm {
 
 }
 
-module.exports = StudentForm;
+export default StudentForm;

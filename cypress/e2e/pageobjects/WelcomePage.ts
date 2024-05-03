@@ -6,4 +6,4 @@ class WelcomePage {
 
 }
 
-module.exports = WelcomePage;
+export default WelcomePage;
