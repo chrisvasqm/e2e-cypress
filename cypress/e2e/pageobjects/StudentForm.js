@@ -14,6 +14,16 @@ class StudentForm {
         cy.get('#register').click();
     }
 
+    errors() {
+        return [
+            cy.get('#firstName-helper-text'),
+            cy.get('#lastName-helper-text'),
+            cy.get('#email-helper-text'),
+            cy.get('#phone-helper-text'),
+            cy.get('#provinces-helper-text')
+        ];
+    }
+
 }
 
 module.exports = StudentForm;

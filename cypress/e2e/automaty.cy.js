@@ -66,11 +66,7 @@ describe('Automaty', () => {
         it('should see errors with invalid values', () => {
             form.register();
 
-            cy.get('#firstName-helper-text').should('exist');
-            cy.get('#lastName-helper-text').should('exist');
-            cy.get('#email-helper-text').should('exist');
-            cy.get('#phone-helper-text').should('exist');
-            cy.get('#provinces-helper-text').should('exist');
+            form.errors().forEach(error => error.should('exist'));
         })
 
     })
