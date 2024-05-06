@@ -20,19 +20,19 @@ describe('Automaty', () => {
 
             const welcome = new WelcomePage();
 
-            welcome.title().should('exist');
+            welcome.title.should('exist');
         })
 
         it('should see errors with invalid credentials', () => {
             form.signIn('a', 'a');
 
-            form.errors().forEach(error => error.should('exist'));
+            form.errors.forEach(error => error.should('exist'));
         })
 
         it('should see alert with wrong credentials', () => {
             form.signIn('wrong_username', 'wrong_password');
 
-            form.invalidAlert().should('exist');
+            form.invalidAlert.should('exist');
         })
 
     })
@@ -60,13 +60,13 @@ describe('Automaty', () => {
             form.register();
 
             const modal = new StudentModal();
-            modal.title().should('exist');
+            modal.title.should('exist');
         })
 
         it('should see errors with invalid values', () => {
             form.register();
 
-            form.errors().forEach(error => error.should('exist'));
+            form.errors.forEach(error => error.should('exist'));
         })
 
     })

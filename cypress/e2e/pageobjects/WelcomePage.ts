@@ -1,6 +1,6 @@
 class WelcomePage {
 
-    title() {
+    get title() {
         return cy.get('#title-welcome-back', { timeout: 10000 });
     }
 

@@ -6,14 +6,14 @@ class LoginForm {
         cy.get('#sign-in').click();
     }
 
-    errors() {
+    get errors() {
         return [
             cy.get('#username-helper-text'),
             cy.get('#password-helper-text')
         ];
     }
 
-    invalidAlert() {
+    get invalidAlert() {
         return cy.contains('Invalid', { timeout: 500 });
     }
 

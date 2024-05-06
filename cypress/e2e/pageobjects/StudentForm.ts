@@ -14,7 +14,7 @@ class StudentForm {
         cy.get('#register').click();
     }
 
-    errors() {
+    get errors() {
         return [
             cy.get('#firstName-helper-text'),
             cy.get('#lastName-helper-text'),

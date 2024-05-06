@@ -1,6 +1,6 @@
 class StudentModal {
 
-    title() {
+    get title() {
         return cy.get('#alert-dialog-title');
     }
 
