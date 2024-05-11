@@ -1,7 +1,7 @@
 class StudentModal {
 
     get title() {
-        return cy.get('#alert-dialog-title');
+        return cy.contains('Thanks for applying');
     }
 
 }

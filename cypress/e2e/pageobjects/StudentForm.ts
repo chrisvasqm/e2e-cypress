@@ -6,7 +6,7 @@ class StudentForm {
         cy.get('#email').type(student.email);
         cy.get(`#gender-${student.gender.toLowerCase()}`).click();
         cy.get('#phone').type(student.phone);
-        cy.get('input[id=":r9:"]').click();
+        cy.get('#province-autocomplete').click();
         cy.contains(student.province).click();
     }
 
@@ -20,7 +20,7 @@ class StudentForm {
             cy.get('#lastName-helper-text'),
             cy.get('#email-helper-text'),
             cy.get('#phone-helper-text'),
-            cy.get('#provinces-helper-text')
+            cy.get('#province-provinces-helper-text')
         ];
     }
 
