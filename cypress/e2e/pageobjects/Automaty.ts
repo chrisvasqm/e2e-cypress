@@ -1,7 +1,7 @@
 class Automaty {
 
     open() {
-        cy.visit("https://automaty.vercel.app/");
+        cy.visit("https://automaty-gd3cb.ondigitalocean.app");
     }
 
 }
