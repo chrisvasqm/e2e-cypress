@@ -38,9 +38,6 @@ jobs:
         with:
           version: 9
 
-      - name: Setup Firefox
-        uses: browser-actions/setup-firefox@latest
-
       - name: Cypress run
         uses: cypress-io/github-action@v6
         with:
