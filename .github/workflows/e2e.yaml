@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  e2e:
+  chrome:
     runs-on: ubuntu-latest
 
     steps:
@@ -24,3 +24,21 @@ jobs:
 
       - name: Cypress run
         uses: cypress-io/github-action@v6
+        with:
+          browser: chrome
+  firefox:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
+
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
+        with:
+          browser: firefox
